@@ -19,16 +19,16 @@ class CanvasSaisirPointsAfficherSegments extends JPanel implements MouseListener
     /** Le numero du point selectionne. */
     private int numSelectedPoint;
 
-    /** La couleur d'un point a l'ecran. */
+    /** La couleur d'un point à l'ecran. */
     private final Color pointColor = Color.GRAY;
 
-    /** La couleur d'un segment a l'ecran. */
+    /** La couleur d'un segment à l'ecran. */
     private final Color segmentColor = Color.BLUE;
 
-    /** La couleur d'un point selectionne a l'ecran. */
+    /** La couleur d'un point selectionne à l'ecran. */
     private final Color selectedPointColor = Color.RED;
 
-    /** La taille d'un point a l'ecran. */
+    /** La taille d'un point à l'ecran. */
     private final int POINT_SIZE = 2;
 
     /** Creation de la zone d'affichage. */
@@ -75,7 +75,6 @@ class CanvasSaisirPointsAfficherSegments extends JPanel implements MouseListener
 
             g.fillOval((int)(p.x - POINT_SIZE), (int)(p.y - POINT_SIZE), 2 * POINT_SIZE + 1, 2 * POINT_SIZE + 1);
             g.drawOval((int)(p.x - 2 * POINT_SIZE), (int)(p.y - 2 * POINT_SIZE), 2 * 2 * POINT_SIZE,	2 * 2 * POINT_SIZE);
-            //g.drawString(Double.toString(p.x), (int)p.x - 50, (int)p.y);
         }
     }
 
@@ -85,7 +84,8 @@ class CanvasSaisirPointsAfficherSegments extends JPanel implements MouseListener
         for (int n = 0; n < segments.size(); n++) {
             Segment segment = segments.elementAt(n);
             g.setColor(segmentColor);
-            g.drawLine((int)segment.a.x,(int)segment.a.y,(int)segment.b.x,(int)segment.b.y);
+            g.drawLine((int)segment.topPoint.x,(int)segment.topPoint.y,(int)segment.bottomPoint.x,(int)segment.bottomPoint.y);
+            g.drawString(String.valueOf(segment.number), (int)segment.topPoint.x + 20, (int)segment.topPoint.y);
         }
     }
 

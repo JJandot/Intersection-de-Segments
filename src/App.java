@@ -12,7 +12,7 @@ public class App  {
         // Construction de la zone d'affichage
         ZonePoints zoneAffichage = new ZonePoints();
 
-        // Ajout de la zone d'affichage a la fenetre
+        // Ajout de la zone d'affichage à la fenetre
         frame.getContentPane().add(zoneAffichage);
 
         // Dimension de la zone d'affichage

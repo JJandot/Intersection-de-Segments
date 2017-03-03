@@ -1,3 +1,4 @@
+import geometry.Algorithms;
 import geometry.Segment;
 
 import javax.swing.*;
@@ -59,8 +60,6 @@ class ZonePoints extends JPanel  {
     }
 
     private void makeConvex() {
-        canvas.segments.removeAllElements();
-        //Algorithms.grahamScan(canvas.points, canvas.segments);
-        canvas.repaint();
+        Algorithms.printIntersectionPossibility(canvas.segments);
     }
 }
