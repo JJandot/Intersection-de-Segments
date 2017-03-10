@@ -24,7 +24,7 @@ public class Point {
     }
 
 
-    public Vector<Segment> getSegments(Vector<Segment> segments){
+    Vector<Segment> getSegments(Vector<Segment> segments){
         Vector<Segment> containers = new Vector<>();
         for(Segment s : segments){
             if(s.topPoint == this || s.bottomPoint == this)

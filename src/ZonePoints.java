@@ -1,5 +1,5 @@
-import geometry.Algorithms;
 import geometry.Segment;
+import geometry.Utils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,6 +60,6 @@ class ZonePoints extends JPanel  {
     }
 
     private void makeConvex() {
-        Algorithms.printIntersectionPossibility(canvas.segments);
+        Utils.getSegments(canvas.points, canvas.segments);
     }
 }
