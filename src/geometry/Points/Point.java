@@ -1,8 +1,10 @@
-package geometry;
+package geometry.Points;
+
+import geometry.Segment;
 
 import java.util.Vector;
 
-/** La classe geometry.Point. */
+/** La classe geometry.Points.Point. */
 public class Point {
 
     /**
@@ -24,7 +26,7 @@ public class Point {
     }
 
 
-    Vector<Segment> getSegments(Vector<Segment> segments){
+    public Vector<Segment> getSegments(Vector<Segment> segments){
         Vector<Segment> containers = new Vector<>();
         for(Segment s : segments){
             if(s.topPoint == this || s.bottomPoint == this)

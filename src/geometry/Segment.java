@@ -1,5 +1,7 @@
 package geometry;
 
+import geometry.Points.Point;
+
 /** La classe segment */
 public class Segment {
 

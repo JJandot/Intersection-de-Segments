@@ -1,5 +1,7 @@
 package geometry;
 
+import geometry.Points.Point;
+
 import java.util.Vector;
 
 public class Utils {
