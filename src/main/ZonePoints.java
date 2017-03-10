@@ -1,5 +1,7 @@
-import geometry.Algorithms;
-import geometry.Segment;
+package main;
+
+import main.geometry.Algorithms;
+import main.geometry.Segment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +47,7 @@ class ZonePoints extends JPanel  {
         canvas.segments.removeAllElements();
         Random random = new Random();
         for(int i = 0; i < nbSegments * 2; ++i){
-            canvas.points.add(new geometry.Points.Point(2 + random.nextDouble() * (canvas.getWidth() - 5), 2 + random.nextDouble() * (canvas.getHeight() - 5)));
+            canvas.points.add(new main.geometry.Points.Point(2 + random.nextDouble() * (canvas.getWidth() - 5), 2 + random.nextDouble() * (canvas.getHeight() - 5)));
         }
         for(int i = 0; i < canvas.points.size(); i+=2){
             canvas.segments.add(new Segment(canvas.points.get(i), canvas.points.get(i + 1)));

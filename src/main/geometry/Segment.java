@@ -1,6 +1,6 @@
-package geometry;
+package main.geometry;
 
-import geometry.Points.Point;
+import main.geometry.Points.Point;
 
 /** La classe segment */
 public class Segment {
@@ -24,10 +24,12 @@ public class Segment {
         if(a.y < b.y){
             topPoint = a;
             bottomPoint = b;
+            a.isUpper = true;
         }
         else {
             topPoint = b;
             bottomPoint = a;
+            b.isUpper = true;
         }
         number = ++num;
     }

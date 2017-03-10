@@ -1,10 +1,10 @@
-package geometry.Points;
+package main.geometry.Points;
 
-import geometry.Segment;
+import main.geometry.Segment;
 
 import java.util.Vector;
 
-/** La classe geometry.Points.Point. */
+/** La classe main.geometry.Points.Point. */
 public class Point {
 
     /**
@@ -16,6 +16,8 @@ public class Point {
      * La valeur de y.
      */
     public double y;
+
+    public boolean isUpper = false;
 
     /**
      * Constructeur avec initialisation de x et y.

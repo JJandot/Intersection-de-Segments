@@ -1,4 +1,4 @@
-package geometry.Points;
+package main.geometry.Points;
 
 import java.util.Comparator;
 
