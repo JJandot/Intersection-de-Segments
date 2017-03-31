@@ -33,6 +33,15 @@ public class Algorithms {
                 pointIsInside.add(s);
         }
 
+        List<Segment> unionList = Utils.makeUnion(pointIsUpper, pointIsInside, pointIsLower);
+
+        System.out.println(point);
+        if(unionList.size() > 1){
+            System.out.println(" est une intersection");
+        }
+        else
+            System.out.println(" n'est pas une intersection");
+
 
 
     }

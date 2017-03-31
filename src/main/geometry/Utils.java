@@ -18,11 +18,19 @@ public class Utils {
         return  ((ext1.x - originPoint.x) * (ext2.y - originPoint.y)) - ((ext1.y - originPoint.y) * (ext2.x - originPoint.x));
     }
 
-    public static List<Segment> makeUnion(List<Segment> ... lists){
-        Set<Segment> segmentSet = new HashSet<>();
-        //List<Segment> segments = new ArrayList<>();
-        for (List<Segment> l : lists)
-            segmentSet.addAll(l);
-        return new ArrayList<>(segmentSet);
+   /* public static List<Segment> makeUnion(List<Segment> l, List<Segment> u, List<Segment> c){
+        Set<Segment> segments = new HashSet<>();
+        segments.addAll(l);
+        segments.addAll(u);
+        segments.addAll(c);
+        return new ArrayList<>(segments);
+    }*/
+
+    @SafeVarargs
+    public static List<Segment> makeUnion(List<Segment> ... segmentsLists){
+        Set<Segment> segments = new HashSet<>();
+        for (List<Segment> list : segmentsLists)
+            segments.addAll(list);
+        return new ArrayList<>(segments);
     }
 }
