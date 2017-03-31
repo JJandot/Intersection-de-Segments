@@ -14,17 +14,13 @@ public class Utils {
         }
     }
 
-    static double crossProduct(Point originPoint, Point ext1, Point ext2){
-        return  ((ext1.x - originPoint.x) * (ext2.y - originPoint.y)) - ((ext1.y - originPoint.y) * (ext2.x - originPoint.x));
+    private static double crossProduct(Point originPoint, Point ext1, Point ext2) {
+        return ((ext1.x - originPoint.x) * (ext2.y - originPoint.y)) - ((ext1.y - originPoint.y) * (ext2.x - originPoint.x));
     }
 
-   /* public static List<Segment> makeUnion(List<Segment> l, List<Segment> u, List<Segment> c){
-        Set<Segment> segments = new HashSet<>();
-        segments.addAll(l);
-        segments.addAll(u);
-        segments.addAll(c);
-        return new ArrayList<>(segments);
-    }*/
+    static boolean pointIsInside(Point p, Segment s){
+        return  crossProduct(p, s.topPoint, s.bottomPoint) == 0;
+    }
 
     @SafeVarargs
     public static List<Segment> makeUnion(List<Segment> ... segmentsLists){

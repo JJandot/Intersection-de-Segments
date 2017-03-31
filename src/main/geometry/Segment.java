@@ -35,14 +35,7 @@ public class Segment {
     }
 
     @Override
-    public String toString() {
-        return "Segment{" +
-                "topPoint=" + topPoint +
-                ", bottomPoint=" + bottomPoint +
-                '}';
-    }
-
-    public String toStringNb(){
+    public String toString(){
         return "Segment n°" + number;
     }
 }
