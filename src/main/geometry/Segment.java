@@ -1,7 +1,5 @@
 package main.geometry;
 
-import main.geometry.Points.Point;
-
 /** La classe segment */
 public class Segment {
 
@@ -24,14 +22,20 @@ public class Segment {
         if(a.y < b.y){
             topPoint = a;
             bottomPoint = b;
-            a.isUpper = true;
         }
         else {
             topPoint = b;
             bottomPoint = a;
-            b.isUpper = true;
         }
         number = ++num;
+    }
+
+    public Point getMinXPoint(){
+        return (topPoint.x > bottomPoint.x) ? bottomPoint : topPoint;
+    }
+
+    public Point getMaxXPoint(){
+        return (topPoint.x > bottomPoint.x) ? topPoint : bottomPoint;
     }
 
     @Override

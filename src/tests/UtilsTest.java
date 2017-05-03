@@ -1,8 +1,8 @@
 package tests;
 
-import main.geometry.Points.Point;
+import main.geometry.Point;
 import main.geometry.Segment;
-import main.geometry.Utils;
+import main.Utils;
 import org.junit.Assert;
 import org.junit.Test;
 

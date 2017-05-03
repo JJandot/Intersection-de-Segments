@@ -1,6 +1,6 @@
 package main;
 
-import main.geometry.Points.Point;
+import main.geometry.Point;
 import main.geometry.Segment;
 
 import javax.swing.*;
