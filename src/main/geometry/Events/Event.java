@@ -11,7 +11,11 @@ public class Event {
     private List<Segment> u;
     private List<Segment> l;
     private List<Segment> c;
+    private EventType type;
 
+    public Point getPoint(){
+        return point;
+    }
     public double getY(){
         return point.y;
     }
@@ -24,6 +28,10 @@ public class Event {
         this.u = u;
         this.l = l;
         this.c = c;
+        if(this.u.size() != 0)
+            type = EventType.DEBUT;
+        else
+            type = EventType.FIN;
     }
 
     @Override
@@ -34,5 +42,17 @@ public class Event {
                 ", l=" + l +
                 ", c=" + c +
                 '}';
+    }
+
+    public List<Segment> getU() {
+        return u;
+    }
+
+    public List<Segment> getL() {
+        return l;
+    }
+
+    public List<Segment> getC() {
+        return c;
     }
 }

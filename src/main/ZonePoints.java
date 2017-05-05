@@ -24,7 +24,7 @@ class ZonePoints extends JPanel  {
         JButton rand = new JButton("Rand Segments");
         rand.addActionListener(e -> doRandomSegments(Integer.parseInt(textNombreSegments.getText())));
 
-        JButton enveloppe = new JButton("Create convex");
+        JButton enveloppe = new JButton("Find Intersections");
         enveloppe.addActionListener(e -> makeConvex());
 
         JButton effacer = new JButton("Effacer");
