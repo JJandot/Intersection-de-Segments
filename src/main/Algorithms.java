@@ -32,8 +32,10 @@ public class Algorithms {
 
     private static void handleEventPoint(Event event) {
         List<Segment> union = Utils.makeUnion(event.getU(), event.getC(), event.getL());
-        if(union.size() != 1)
+        if(union.size() != 1) {
+            //event.getPoint();
             System.out.println("intersection");
+        }
 
         //ligne 5
         List<Segment> lc = Utils.makeUnion(event.getL(), event.getC());
