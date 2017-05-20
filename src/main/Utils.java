@@ -55,23 +55,12 @@ public class Utils {
         double constSg = getConstante(sg);
         double constSd = getConstante(sd);
 
-        //System.out.println(coeffSg);
-        //System.out.println(coeffSd);
-        //System.out.println(constSg);
-        //System.out.println(constSd);
-
-
         double coeff = coeffSg - coeffSd;
         double constante = constSd - constSg;
 
-        //System.out.println(coeff);
-        //System.out.println(constante);
-
         double x = constante / coeff;
-        //System.out.println(x);
 
         double y = coeffSg * x + constSg;
-        //System.out.println(y);
 
         return new Point(x, y);
     }

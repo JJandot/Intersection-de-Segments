@@ -11,7 +11,6 @@ public class Event {
     private List<Segment> u;
     private List<Segment> l;
     private List<Segment> c;
-    private EventType type;
 
     public Point getPoint(){
         return point;
@@ -28,21 +27,16 @@ public class Event {
         this.u = u;
         this.l = l;
         this.c = c;
-        if(this.u.size() != 0)
-            type = EventType.DEBUT;
-        else
-            type = EventType.FIN;
     }
 
     @Override
     public String toString() {
-        /*return "Event{" +
+        return "Event{" +
                 "point=" + point +
                 ", u=" + u +
                 ", l=" + l +
                 ", c=" + c +
-                '}';*/
-        return "Event[]";
+                '}';
     }
 
     public List<Segment> getU() {

@@ -16,8 +16,11 @@ public class Algorithms {
     private static TreeSet<Segment> segmentTreeSet = new TreeSet<>(new SegmentXComparator());
     private static List<Event> events = new ArrayList<>();
 
+    private static Vector<Segment> segmentsList;
+
 
     public static void findIntersection(Vector<Point> points, Vector<Segment> segments) {
+        segmentsList = new Vector<>(segments);
         for(Point point : points){
             events.add(new Event(point, point.getU(segments), point.getL(segments), point.getC(segments)));
         }
@@ -50,13 +53,18 @@ public class Algorithms {
 
         //8
         if (uc.isEmpty()){
-            Segment base = event.getL().get(0);
+            System.out.println("-------VIDE-----------");
+            Segment base = null;
+            if(!event.getL().isEmpty())
+                base = event.getL().get(0);
+            if(base == null) return;
             Segment floorBase = segmentTreeSet.floor(base);
             Segment ceilingBase = segmentTreeSet.ceiling(base);
-            if(base != null && floorBase != null && ceilingBase != null && base != floorBase && base != ceilingBase)
+            if(floorBase != null && ceilingBase != null && base != floorBase && base != ceilingBase)
                 findNewEvent(segmentTreeSet.floor(base), segmentTreeSet.ceiling(base), event, points);
         }
         else{
+            System.out.println("---------UC---------");
             Segment left = uc.get(0);
             Segment floorLeft = segmentTreeSet.floor(left);
             if(left != null && floorLeft != null && left != floorLeft)
@@ -69,17 +77,33 @@ public class Algorithms {
     }
 
     private static void findNewEvent(Segment sg, Segment sd, Event event, Vector<Point> points){
+        System.out.println("Sg : " + sg + ", Sd : " + sd);
         Point intersection = Utils.getIntersectionPoint(sg, sd);
+
         System.out.println("Intersection possible : " + intersection);
 
-        if(intersection.x < sg.getMinXPoint().x || intersection.x < sd.getMinXPoint().x || intersection.x > sg.getMaxXPoint().x || intersection.x > sd.getMaxXPoint().x)
-            System.out.println("Pas d'intersection");
-            //refaire avec que le point le plus à gauche
-        else
-            points.add(intersection);
-        /*if(event.getPoint().y < intersection.y)
-            System.out.println("intersection");
-        else if(event.getPoint().y == intersection.y && event.getPoint().x < event.getPoint().x)
-            System.out.println("intersection");*/
+        if(intersection.x > sd.getMaxXPoint().x)
+            return;
+        if(intersection.x > sg.getMaxXPoint().x)
+            return;
+        if(intersection.x < sg.getMinXPoint().x)
+            return;
+        if(intersection.x < sd.getMinXPoint().x)
+            return;
+
+        if(intersection.y < sd.topPoint.y)
+            return;
+        if(intersection.y < sg.topPoint.y)
+            return;
+        if(intersection.y > sd.bottomPoint.y)
+            return;
+        if(intersection.y > sg.bottomPoint.y)
+            return;
+
+        points.add(intersection);
+        Event e = new Event(intersection, intersection.getU(segmentsList), intersection.getL(segmentsList), intersection.getC(segmentsList));
+        System.out.println(" E : " + event);
+        if(!events.contains(e))
+            events.add(e);
     }
 }
