@@ -36,12 +36,13 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
+        /*return "Event{" +
                 "point=" + point +
                 ", u=" + u +
                 ", l=" + l +
                 ", c=" + c +
-                '}';
+                '}';*/
+        return "Event[]";
     }
 
     public List<Segment> getU() {

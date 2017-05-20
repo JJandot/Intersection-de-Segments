@@ -25,7 +25,7 @@ class ZonePoints extends JPanel  {
         rand.addActionListener(e -> doRandomSegments(Integer.parseInt(textNombreSegments.getText())));
 
         JButton enveloppe = new JButton("Find Intersections");
-        enveloppe.addActionListener(e -> makeConvex());
+        enveloppe.addActionListener(e -> findIntersection());
 
         JButton effacer = new JButton("Effacer");
         effacer.addActionListener(evt -> clearScreen());
@@ -60,7 +60,8 @@ class ZonePoints extends JPanel  {
         canvas.repaint();
     }
 
-    private void makeConvex() {
+    private void findIntersection() {
         Algorithms.findIntersection(canvas.points, canvas.segments);
+        canvas.repaint();
     }
 }

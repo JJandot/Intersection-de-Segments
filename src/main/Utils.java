@@ -36,4 +36,43 @@ public class Utils {
 
         return coeffDir * x + constante;
     }
+
+    public static double getCoeffDir(Segment segment){
+        Point a = segment.getMinXPoint();
+        Point b = segment.getMaxXPoint();
+        return  (b.y - a.y)/(b.x - a.x);
+    }
+
+    public static double getConstante(Segment segment){
+        Point a = segment.getMinXPoint();
+        return a.y - (getCoeffDir(segment) * a.x);
+    }
+
+    public static Point getIntersectionPoint(Segment sg, Segment sd){
+
+        double coeffSg = getCoeffDir(sg);
+        double coeffSd = getCoeffDir(sd);
+        double constSg = getConstante(sg);
+        double constSd = getConstante(sd);
+
+        //System.out.println(coeffSg);
+        //System.out.println(coeffSd);
+        //System.out.println(constSg);
+        //System.out.println(constSd);
+
+
+        double coeff = coeffSg - coeffSd;
+        double constante = constSd - constSg;
+
+        //System.out.println(coeff);
+        //System.out.println(constante);
+
+        double x = constante / coeff;
+        //System.out.println(x);
+
+        double y = coeffSg * x + constSg;
+        //System.out.println(y);
+
+        return new Point(x, y);
+    }
 }
