@@ -27,10 +27,10 @@ public class Algorithms {
         events.sort(new EventYComparator());
 
         while (!events.isEmpty()){
+            System.out.println(segmentTreeSet);
             Event event = events.get(0);
             events.remove(event);
             handleEventPoint(event, points);
-            System.out.println(segmentTreeSet);
         }
     }
 
@@ -103,7 +103,9 @@ public class Algorithms {
         points.add(intersection);
         Event e = new Event(intersection, intersection.getU(segmentsList), intersection.getL(segmentsList), intersection.getC(segmentsList));
         System.out.println(" E : " + event);
-        if(!events.contains(e))
+        if(!events.contains(e)) {
             events.add(e);
+            events.sort(new EventYComparator());
+        }
     }
 }
